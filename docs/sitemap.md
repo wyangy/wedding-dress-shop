@@ -2,16 +2,17 @@
 
 ## Main Menu
 
-- Shop
-- How It Works
-- Contact
+* Home
+* Shop
+* How It Works
+* Contact
 
 ## Website Structure
 
-Home  
-→ Shop  
-→ Product Detail  
-→ Book Consultation / Contact
+Home
+→ Shop / Catalogue Page
+→ Product Detail Page
+→ Request a Fitting Page
 
 ## Homepage Sections
 
@@ -19,11 +20,18 @@ Home
 2. Featured dresses
 3. How It Works
 4. Contact / enquiry section
+5. Footer
 
 ## How It Works
 
-Browse the dress collection  
-→ Pick a dress  
-→ Check measurements and condition  
-→ Book a consultation  
-→ Discuss fitting or tailoring options
+Browse the dress collection
+→ Pick a dress
+→ Check measurements and condition
+→ Request a fitting
+→ Wait for confirmation from the designer
+
+## MVP Scope
+
+This version does not include a shopping cart, checkout system, payment system, or confirmed online booking calendar.
+
+The fitting request form sends the buyer’s interest and contact details. The fitting is not confirmed immediately.

@@ -57,8 +57,9 @@ Cart, checkout, online payment, booking calendar, and admin product management f
 * Product detail page
 * Dress measurements and condition notes
 * Front and back dress photos
-* Book Consultation call-to-action
-* Contact page
+* Request a Fitting call-to-action
+* Fitting request page with selected dress details
+* Contact form with name, email, phone, and message fields
 * How It Works section
 * Responsive layout for mobile, tablet, and desktop
 
@@ -67,7 +68,7 @@ Cart, checkout, online payment, booking calendar, and admin product management f
 Home
 → Shop
 → Product Detail
-→ Book Consultation / Contact
+→ Request a Fitting
 
 ## Wireframes
 
@@ -87,8 +88,8 @@ The wireframes will help define the page structure, content hierarchy, and main 
 1. Browse the dress collection
 2. Pick a dress
 3. Check measurements and condition
-4. Book a consultation
-5. Discuss fitting or tailoring options
+4. Request a fitting
+5. Wait for confirmation from the designer
 
 ## Tech Stack
 
