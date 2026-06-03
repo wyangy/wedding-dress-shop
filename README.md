@@ -1,116 +1,73 @@
-# Wedding Dress Shop
+# React + TypeScript + Vite
 
-A responsive bridal dress catalogue website for a retired wedding dress designer.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Project Overview
+Currently, two official plugins are available:
 
-This project is a front-end website for a retired bridal designer who wants to present her remaining wedding dress collection online.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-The dresses are boutique designer pieces used for runway shows, photoshoots, and client fittings. They are not ordinary second-hand dresses.
+## React Compiler
 
-The website helps potential buyers browse the collection, view dress details and measurements, and request a fitting.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Live Demo
+## Expanding the ESLint configuration
 
-Coming soon.
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## Project Scope
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-This is an MVP front-end catalogue website, not a full e-commerce checkout system.
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-The first version focuses on:
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-* Browsing dresses
-* Viewing product details
-* Checking measurements and condition notes
-* Sending a fitting request
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-The site does not include cart, checkout, payment, or automatic booking confirmation in the first version.
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-## Main User Flow
-
-Home
-→ Shop
-→ Product Detail
-→ Request a Fitting
-
-## Main Features
-
-* Homepage with hero section
-* Shop / catalogue page
-* Product detail page
-* Dress measurements and condition notes
-* Request a Fitting page
-* Contact form with name, email, phone, and message fields
-* Responsive layout for desktop and mobile
-
-## Wireframes
-
-The wireframe overview is saved in:
-
-`docs/wireframes/wireframe-overview.png`
-
-Wireframe notes are available in:
-
-`docs/wireframes/wireframe-notes.md`
-
-## Tech Stack
-
-* React
-* TypeScript
-* Vite
-* Tailwind CSS
-* Git and GitHub
-* Vercel for deployment
-
-## Testing Plan
-
-The first version will be tested manually using a checklist for navigation, responsive layout, product detail pages, and fitting request flow.
-
-Planned future testing:
-
-* Basic end-to-end tests with Playwright
-* Homepage load test
-* Shop page product card test
-* Product detail page navigation test
-* Request a Fitting form flow test
-
-## Project Documentation
-
-More detailed planning documents are available in the `docs` folder:
-
-* `docs/project-brief.md`
-* `docs/sitemap.md`
-* `docs/user-flow.md`
-* `docs/wireframes/wireframe-notes.md`
-
-## Project Status
-
-Current stage: planning and early development.
-
-Completed:
-
-* Project brief
-* MVP scope
-* User flow
-* Sitemap
-* Wireframe overview
-* Planned tech stack
-
-Next steps:
-
-* Set up React, TypeScript, Vite, and Tailwind CSS
-* Build homepage
-* Build shop page
-* Build product detail page
-* Build Request a Fitting page
-* Add responsive styling
-* Deploy with Vercel
-
-## Future Improvements
-
-* Product filtering by size, style, or price
-* Real booking form handling
-* Online payment or checkout
-* Admin system for managing dress listings
-* Automated Playwright tests
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
