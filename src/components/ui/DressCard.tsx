@@ -16,10 +16,10 @@ function DressCard({ dress }: DressCardProps) {
 
         <div className="space-y-1 text-xs text-stone-700">
           <p>Size: {dress.size}</p>
-          <p>Bust: {dress.bust}</p>
-          <p>Waist: {dress.waist}</p>
-          <p>Hip: {dress.hip}</p>
-          <p>Hollow to Hem: {dress.hollowToHem}</p>
+          <p>Bust: {dress.bust} cm</p>
+          <p>Waist: {dress.waist} cm</p>
+          <p>Hip: {dress.hip} cm</p>
+          <p>Hollow to Hem: {dress.hollowToHem} cm</p>
         </div>
 
         <p className="mt-4 text-xs leading-5 text-stone-600">

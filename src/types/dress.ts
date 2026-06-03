@@ -2,9 +2,9 @@ export type Dress = {
   id: number;
   name: string;
   size: string;
-  bust: string;
-  waist: string;
-  hip: string;
-  hollowToHem: string;
+  bust: number;
+  waist: number;
+  hip: number;
+  hollowToHem: number;
   description: string;
 };
