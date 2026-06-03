@@ -4,51 +4,35 @@ A responsive bridal dress catalogue website for a retired wedding dress designer
 
 ## Project Overview
 
-This project is based on a real-world client scenario: a retired wedding dress designer has a collection of remaining bridal dresses from her design work.
+This project is a front-end website for a retired bridal designer who wants to present her remaining wedding dress collection online.
 
-The dresses were not ordinary privately owned second-hand dresses. They were boutique designer pieces used for runway shows, photoshoots, and client fittings.
+The dresses are boutique designer pieces used for runway shows, photoshoots, and client fittings. They are not ordinary second-hand dresses.
 
-The goal of this project is to create a simple, elegant, and easy-to-use website where potential buyers can browse the dress collection, view dress details and measurements, and book a consultation or send an enquiry.
+The website helps potential buyers browse the collection, view dress details and measurements, and request a fitting.
 
-## Client
+## Live Demo
 
-A retired wedding dress designer with a collection of remaining bridal dresses.
-
-## Problem
-
-The designer is now a senior citizen and wants to sell the remaining dress collection, but she does not know how to present the dresses clearly online.
-
-Potential buyers need more than beautiful photos before making a decision. They need clear product information, measurements, condition notes, dress photos, and a way to ask questions before booking a consultation.
-
-## Goal
-
-Create a responsive bridal dress catalogue website that helps buyers:
-
-* Browse available wedding dresses
-* View individual dress details
-* Check measurements and condition
-* Understand the background and value of the dresses
-* Book a consultation or send an enquiry
-
-## Target Users
-
-The main users are potential brides who are looking for a unique, one-of-a-kind wedding dress rather than a factory-made or mass-produced gown.
-
-These buyers may value:
-
-* Handmade design
-* Bridal boutique craftsmanship
-* Vintage yet timeless style
-* A dress with character and history
-* A more affordable way to buy a designer gown
+Coming soon.
 
 ## Project Scope
 
-This project is planned as a front-end bridal dress catalogue website, not a full e-commerce checkout system.
+This is an MVP front-end catalogue website, not a full e-commerce checkout system.
 
-The first version allows users to browse dresses, view product details and measurements, and book a consultation or send an enquiry.
+The first version focuses on:
 
-Cart, checkout, online payment, booking calendar, and admin product management features are possible future improvements.
+* Browsing dresses
+* Viewing product details
+* Checking measurements and condition notes
+* Sending a fitting request
+
+The site does not include cart, checkout, payment, or automatic booking confirmation in the first version.
+
+## Main User Flow
+
+Home
+→ Shop
+→ Product Detail
+→ Request a Fitting
 
 ## Main Features
 
@@ -56,40 +40,19 @@ Cart, checkout, online payment, booking calendar, and admin product management f
 * Shop / catalogue page
 * Product detail page
 * Dress measurements and condition notes
-* Front and back dress photos
-* Request a Fitting call-to-action
-* Fitting request page with selected dress details
+* Request a Fitting page
 * Contact form with name, email, phone, and message fields
-* How It Works section
-* Responsive layout for mobile, tablet, and desktop
-
-## User Flow
-
-Home
-→ Shop
-→ Product Detail
-→ Request a Fitting
+* Responsive layout for desktop and mobile
 
 ## Wireframes
 
-Low-fidelity wireframes will be created before development to plan the layout and user journey.
+The wireframe overview is saved in:
 
-Planned wireframes:
+`docs/wireframes/wireframe-overview.png`
 
-* Homepage
-* Shop / catalogue page
-* Product detail page
-* Contact / Book Consultation page
+Wireframe notes are available in:
 
-The wireframes will help define the page structure, content hierarchy, and main user actions before building the React components.
-
-## How It Works
-
-1. Browse the dress collection
-2. Pick a dress
-3. Check measurements and condition
-4. Request a fitting
-5. Wait for confirmation from the designer
+`docs/wireframes/wireframe-notes.md`
 
 ## Tech Stack
 
@@ -102,51 +65,52 @@ The wireframes will help define the page structure, content hierarchy, and main 
 
 ## Testing Plan
 
-The first version will be tested manually using a checklist for navigation, responsive layout, product detail pages, and consultation links.
+The first version will be tested manually using a checklist for navigation, responsive layout, product detail pages, and fitting request flow.
 
-After the main pages are working, I plan to add basic end-to-end tests with Playwright.
+Planned future testing:
 
-Planned Playwright tests:
+* Basic end-to-end tests with Playwright
+* Homepage load test
+* Shop page product card test
+* Product detail page navigation test
+* Request a Fitting form flow test
 
-* Homepage loads correctly
-* Shop page displays dress cards
-* Product detail page opens correctly
-* Book Consultation button links to the contact page
-* Mobile navigation works
+## Project Documentation
+
+More detailed planning documents are available in the `docs` folder:
+
+* `docs/project-brief.md`
+* `docs/sitemap.md`
+* `docs/user-flow.md`
+* `docs/wireframes/wireframe-notes.md`
 
 ## Project Status
 
-This project is currently in the planning and early development stage.
+Current stage: planning and early development.
 
 Completed:
 
-* Client brief
-* Problem statement
-* Target users
+* Project brief
 * MVP scope
 * User flow
-* Initial wireframe plan
-* Initial feature list
+* Sitemap
+* Wireframe overview
 * Planned tech stack
 
 Next steps:
 
-* Create project documentation
-* Create sitemap document
-* Create low-fidelity wireframes
 * Set up React, TypeScript, Vite, and Tailwind CSS
 * Build homepage
-* Build shop / catalogue page
+* Build shop page
 * Build product detail page
-* Build contact page
+* Build Request a Fitting page
 * Add responsive styling
-* Deploy the first version with Vercel
+* Deploy with Vercel
 
 ## Future Improvements
 
 * Product filtering by size, style, or price
-* Real consultation booking form
+* Real booking form handling
 * Online payment or checkout
 * Admin system for managing dress listings
-* More detailed tailoring notes
 * Automated Playwright tests
