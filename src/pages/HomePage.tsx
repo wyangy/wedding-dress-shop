@@ -1,4 +1,5 @@
 import Header from "../components/layout/Header";
+import Hero from "../components/home/Hero";
 
 function HomePage() {
   return (
@@ -6,7 +7,7 @@ function HomePage() {
       <Header />
 
       <main>
-        <h1>Wedding Dress Shop</h1>
+        <Hero />
       </main>
     </>
   );
