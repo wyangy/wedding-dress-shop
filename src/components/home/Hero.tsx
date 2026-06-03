@@ -10,12 +10,12 @@ function Hero() {
           </h1>
 
           <p className="mb-8 max-w-md text-base leading-7 text-stone-700">
-            Beautiful one-of-a-kind wedding dresses from a refined designer&apos;s
-            collection.
+            Beautiful one-of-a-kind wedding dresses from a refined
+            designer&apos;s collection.
           </p>
 
           <a
-            href="#shop"
+            href="/shop"
             className="inline-block bg-stone-950 px-7 py-3 text-sm font-bold uppercase tracking-wide text-white hover:bg-stone-700"
           >
             Shop Dresses

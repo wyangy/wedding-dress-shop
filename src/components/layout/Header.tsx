@@ -6,19 +6,19 @@ function Header() {
           WEDDING DRESS SHOP
         </a>
 
-        <nav className="flex gap-8 text-xs font-bold uppercase tracking-wide text-stone-900">
-          <a href="#shop" className="hover:text-stone-500">
-            Shop
-          </a>
+<nav className="flex gap-8 text-xs font-bold uppercase tracking-wide text-stone-900">
+  <a href="/shop" className="hover:text-stone-500">
+    Shop
+  </a>
 
-          <a href="#how-it-works" className="hover:text-stone-500">
-            How It Works
-          </a>
+  <a href="#how-it-works" className="hover:text-stone-500">
+    How It Works
+  </a>
 
-          <a href="#contact" className="hover:text-stone-500">
-            Contact
-          </a>
-        </nav>
+  <a href="#contact" className="hover:text-stone-500">
+    Contact
+  </a>
+</nav>
       </div>
     </header>
   );
