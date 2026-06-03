@@ -1,8 +1,14 @@
+import Header from "../components/layout/Header";
+
 function HomePage() {
   return (
-    <main>
-      <h1>Wedding Dress Shop</h1>
-    </main>
+    <>
+      <Header />
+
+      <main>
+        <h1>Wedding Dress Shop</h1>
+      </main>
+    </>
   );
 }
 
