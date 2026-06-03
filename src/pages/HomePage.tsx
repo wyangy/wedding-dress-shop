@@ -1,5 +1,6 @@
 import Header from "../components/layout/Header";
 import Hero from "../components/home/Hero";
+import FeaturedDresses from "../components/home/FeaturedDresses";
 
 function HomePage() {
   return (
@@ -8,6 +9,7 @@ function HomePage() {
 
       <main>
         <Hero />
+        <FeaturedDresses />
       </main>
     </>
   );
