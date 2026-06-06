@@ -7,6 +7,7 @@ import { featuredDresses } from "../data/dresses";
 function RequestFittingPage() {
   const { id } = useParams();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [phoneError, setPhoneError] = useState("");
 
   const dress = featuredDresses.find((dress) => dress.id === Number(id));
 
@@ -82,6 +83,21 @@ function RequestFittingPage() {
             className="space-y-5 border border-stone-300 p-5"
             onSubmit={(event) => {
               event.preventDefault();
+
+              const formData = new FormData(event.currentTarget);
+              const phone = String(formData.get("phone") ?? "").trim();
+
+              const phonePattern = /^[0-9+() -]{7,20}$/;
+
+              if (!phonePattern.test(phone)) {
+                setPhoneError(
+                  "Please enter a valid phone number using numbers, spaces, +, brackets, or hyphens."
+                );
+                setIsSubmitted(false);
+                return;
+              }
+
+              setPhoneError("");
               setIsSubmitted(true);
             }}
           >
@@ -96,6 +112,7 @@ function RequestFittingPage() {
                 id="name"
                 name="name"
                 type="text"
+                required
                 className="w-full border border-stone-300 px-4 py-3 text-sm"
               />
             </div>
@@ -111,6 +128,7 @@ function RequestFittingPage() {
                 id="email"
                 name="email"
                 type="email"
+                required
                 className="w-full border border-stone-300 px-4 py-3 text-sm"
               />
             </div>
@@ -126,8 +144,14 @@ function RequestFittingPage() {
                 id="phone"
                 name="phone"
                 type="tel"
+                required
+                inputMode="tel"
                 className="w-full border border-stone-300 px-4 py-3 text-sm"
               />
+
+              {phoneError && (
+                <p className="mt-2 text-sm text-red-700">{phoneError}</p>
+              )}
             </div>
 
             <div>
@@ -141,6 +165,7 @@ function RequestFittingPage() {
                 id="message"
                 name="message"
                 rows={6}
+                required
                 className="w-full border border-stone-300 px-4 py-3 text-sm"
                 placeholder="Tell us about your preferred fitting time or any questions."
               />
@@ -148,8 +173,9 @@ function RequestFittingPage() {
 
             {isSubmitted && (
               <div className="border border-stone-300 bg-stone-50 px-4 py-3 text-sm text-stone-700">
-                Thank you. Your fitting request has been prepared for this
-                dress.
+                Thank you. Your fitting request has been received in this demo.
+                In a real build, this form would send the request to the shop
+                owner.
               </div>
             )}
 
