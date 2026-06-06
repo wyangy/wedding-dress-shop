@@ -1,24 +1,32 @@
+import { Link } from "react-router";
+
 function Header() {
   return (
     <header className="border-b border-stone-200 bg-white">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <a href="/" className="text-sm font-bold tracking-wide text-stone-900">
+        <Link to="/" className="text-sm font-bold tracking-wide text-stone-900">
           WEDDING DRESS SHOP
-        </a>
+        </Link>
 
-<nav className="flex gap-8 text-xs font-bold uppercase tracking-wide text-stone-900">
-  <a href="/shop" className="hover:text-stone-500">
-    Shop
-  </a>
+        <nav className="flex gap-8 text-xs font-bold uppercase tracking-wide text-stone-900">
+          <Link to="/shop" className="hover:text-stone-500">
+            Shop
+          </Link>
 
-  <a href="#how-it-works" className="hover:text-stone-500">
-    How It Works
-  </a>
+          <Link
+            to={{ pathname: "/", hash: "#how-it-works" }}
+            className="hover:text-stone-500"
+          >
+            How It Works
+          </Link>
 
-  <a href="#contact" className="hover:text-stone-500">
-    Contact
-  </a>
-</nav>
+          <Link
+            to={{ pathname: "/", hash: "#contact" }}
+            className="hover:text-stone-500"
+          >
+            Contact
+          </Link>
+        </nav>
       </div>
     </header>
   );
