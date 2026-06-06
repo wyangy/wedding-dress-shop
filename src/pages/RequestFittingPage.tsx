@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, useParams } from "react-router";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
@@ -5,6 +6,7 @@ import { featuredDresses } from "../data/dresses";
 
 function RequestFittingPage() {
   const { id } = useParams();
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const dress = featuredDresses.find((dress) => dress.id === Number(id));
 
@@ -76,7 +78,13 @@ function RequestFittingPage() {
             </p>
           </section>
 
-          <form className="space-y-5 border border-stone-300 p-5">
+          <form
+            className="space-y-5 border border-stone-300 p-5"
+            onSubmit={(event) => {
+              event.preventDefault();
+              setIsSubmitted(true);
+            }}
+          >
             <div>
               <label
                 htmlFor="name"
@@ -137,6 +145,13 @@ function RequestFittingPage() {
                 placeholder="Tell us about your preferred fitting time or any questions."
               />
             </div>
+
+            {isSubmitted && (
+              <div className="border border-stone-300 bg-stone-50 px-4 py-3 text-sm text-stone-700">
+                Thank you. Your fitting request has been prepared for this
+                dress.
+              </div>
+            )}
 
             <button
               type="submit"
