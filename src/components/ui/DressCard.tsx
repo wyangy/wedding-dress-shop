@@ -1,4 +1,5 @@
 import type { Dress } from "../../types/dress";
+import { Link } from "react-router";
 
 type DressCardProps = {
   dress: Dress;
@@ -25,6 +26,12 @@ function DressCard({ dress }: DressCardProps) {
         <p className="mt-4 text-xs leading-5 text-stone-600">
           {dress.description}
         </p>
+        <Link
+          to={`/dresses/${dress.id}`}
+          className="mt-4 inline-block border border-stone-900 px-5 py-2 text-xs font-bold uppercase tracking-wide text-stone-900 hover:bg-stone-950 hover:text-white"
+        >
+          View Details
+        </Link>
       </div>
     </article>
   );
