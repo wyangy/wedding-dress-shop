@@ -2,14 +2,18 @@ import { useEffect } from "react";
 import { useLocation } from "react-router";
 
 function ScrollToHash() {
-  const location = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    if (!location.hash) {
+    if (!hash) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
       return;
     }
 
-    const elementId = location.hash.replace("#", "");
+    const elementId = hash.replace("#", "");
 
     requestAnimationFrame(() => {
       const element = document.getElementById(elementId);
@@ -21,7 +25,7 @@ function ScrollToHash() {
         });
       }
     });
-  }, [location]);
+  }, [pathname, hash]);
 
   return null;
 }
