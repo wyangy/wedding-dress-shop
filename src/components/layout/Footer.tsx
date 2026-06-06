@@ -1,6 +1,19 @@
 import { Link } from "react-router";
 
 function Footer() {
+  const scrollToSection = (id: string) => {
+    window.setTimeout(() => {
+      const section = document.getElementById(id);
+
+      if (section) {
+        section.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 0);
+  };
+
   return (
     <footer className="border-t border-stone-200 bg-white">
       <div className="mx-auto grid max-w-6xl gap-8 px-6 py-8 md:grid-cols-3">
@@ -20,15 +33,38 @@ function Footer() {
           </h3>
 
           <div className="mt-3 flex flex-col gap-1 text-xs text-stone-700">
-            <Link to="/shop">Shop</Link>
+            <Link
+              to="/shop"
+              onClick={() => {
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                });
+              }}
+            >
+              Shop
+            </Link>
 
-            <Link to={{ pathname: "/", hash: "#about" }}>About</Link>
+            <Link
+              to={{ pathname: "/", hash: "#about" }}
+              onClick={() => scrollToSection("about")}
+            >
+              About
+            </Link>
 
-            <Link to={{ pathname: "/", hash: "#how-it-works" }}>
+            <Link
+              to={{ pathname: "/", hash: "#how-it-works" }}
+              onClick={() => scrollToSection("how-it-works")}
+            >
               How It Works
             </Link>
 
-            <Link to={{ pathname: "/", hash: "#contact" }}>Contact</Link>
+            <Link
+              to={{ pathname: "/", hash: "#contact" }}
+              onClick={() => scrollToSection("contact")}
+            >
+              Contact
+            </Link>
           </div>
         </div>
 
