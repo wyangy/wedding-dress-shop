@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 function Footer() {
   return (
     <footer className="border-t border-stone-200 bg-white">
@@ -18,10 +20,15 @@ function Footer() {
           </h3>
 
           <div className="mt-3 flex flex-col gap-1 text-xs text-stone-700">
-            <a href="/shop">Shop</a>
-            <a href="#how-it-works">How It Works</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
+            <Link to="/shop">Shop</Link>
+
+            <Link to={{ pathname: "/", hash: "#about" }}>About</Link>
+
+            <Link to={{ pathname: "/", hash: "#how-it-works" }}>
+              How It Works
+            </Link>
+
+            <Link to={{ pathname: "/", hash: "#contact" }}>Contact</Link>
           </div>
         </div>
 
