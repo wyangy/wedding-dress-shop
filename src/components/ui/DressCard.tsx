@@ -1,5 +1,5 @@
-import type { Dress } from "../../types/dress";
 import { Link } from "react-router";
+import type { Dress } from "../../types/dress";
 
 type DressCardProps = {
   dress: Dress;
@@ -8,8 +8,12 @@ type DressCardProps = {
 function DressCard({ dress }: DressCardProps) {
   return (
     <article className="border border-stone-300 bg-white">
-      <div className="flex h-44 items-center justify-center border-b border-stone-300 bg-stone-50 text-sm text-stone-500">
-        Dress image
+      <div className="flex h-72 items-center justify-center border-b border-stone-300 bg-stone-50">
+        <img
+          src={dress.images.main}
+          alt={dress.name}
+          className="h-full w-full object-contain"
+        />
       </div>
 
       <div className="p-4">
@@ -26,6 +30,7 @@ function DressCard({ dress }: DressCardProps) {
         <p className="mt-4 text-xs leading-5 text-stone-600">
           {dress.description}
         </p>
+
         <Link
           to={`/dresses/${dress.id}`}
           className="mt-4 inline-block border border-stone-900 px-5 py-2 text-xs font-bold uppercase tracking-wide text-stone-900 hover:bg-stone-950 hover:text-white"
