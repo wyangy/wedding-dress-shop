@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
@@ -5,8 +6,15 @@ import { dresses } from "../data/dresses";
 
 function ProductDetailPage() {
   const { id } = useParams();
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const dress = dresses.find((dress) => dress.id === Number(id));
+
+  useEffect(() => {
+    if (dress) {
+      setSelectedImage(dress.images.main);
+    }
+  }, [dress]);
 
   if (!dress) {
     return (
@@ -49,7 +57,9 @@ function ProductDetailPage() {
       src: dress.images.flaw,
       alt: `${dress.name} flaw`,
     },
-  ].filter((image) => image.src);
+  ].filter((image): image is { label: string; src: string; alt: string } =>
+    Boolean(image.src)
+  );
 
   return (
     <>
@@ -70,27 +80,29 @@ function ProductDetailPage() {
 
         <div className="grid gap-10 md:grid-cols-2">
           <div>
-            <div className="border border-stone-300 bg-stone-50">
+            <div className="flex min-h-[620px] items-center justify-center border border-stone-300 bg-stone-50">
               <img
-                src={dress.images.main}
+                src={selectedImage ?? dress.images.main}
                 alt={dress.name}
-                className="h-[520px] w-full object-cover"
+                className="max-h-[620px] w-full object-contain"
               />
             </div>
 
             {thumbnails.length > 0 && (
               <div className="mt-4 grid grid-cols-4 gap-3">
                 {thumbnails.map((image) => (
-                  <div
+                  <button
                     key={image.label}
-                    className="border border-stone-300 bg-stone-50"
+                    type="button"
+                    onClick={() => setSelectedImage(image.src)}
+                    className="border border-stone-300 bg-stone-50 p-1 hover:border-stone-900"
                   >
                     <img
                       src={image.src}
                       alt={image.alt}
-                      className="h-24 w-full object-cover"
+                      className="h-28 w-full object-contain"
                     />
-                  </div>
+                  </button>
                 ))}
               </div>
             )}
