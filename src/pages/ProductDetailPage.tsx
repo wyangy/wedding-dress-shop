@@ -1,12 +1,12 @@
 import { Link, useParams } from "react-router";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
-import { featuredDresses } from "../data/dresses";
+import { dresses } from "../data/dresses";
 
 function ProductDetailPage() {
   const { id } = useParams();
 
-  const dress = featuredDresses.find((dress) => dress.id === Number(id));
+  const dress = dresses.find((dress) => dress.id === Number(id));
 
   if (!dress) {
     return (
@@ -28,6 +28,29 @@ function ProductDetailPage() {
     );
   }
 
+  const thumbnails = [
+    {
+      label: "Front",
+      src: dress.images.front,
+      alt: `${dress.name} front view`,
+    },
+    {
+      label: "Back",
+      src: dress.images.back,
+      alt: `${dress.name} back view`,
+    },
+    {
+      label: "Detail",
+      src: dress.images.detail,
+      alt: `${dress.name} detail`,
+    },
+    {
+      label: "Flaw",
+      src: dress.images.flaw,
+      alt: `${dress.name} flaw`,
+    },
+  ].filter((image) => image.src);
+
   return (
     <>
       <Header />
@@ -47,24 +70,30 @@ function ProductDetailPage() {
 
         <div className="grid gap-10 md:grid-cols-2">
           <div>
-            <div className="flex h-[520px] items-center justify-center border border-stone-300 bg-stone-50 text-sm text-stone-500">
-              Large dress image
+            <div className="border border-stone-300 bg-stone-50">
+              <img
+                src={dress.images.main}
+                alt={dress.name}
+                className="h-[520px] w-full object-cover"
+              />
             </div>
 
-            <div className="mt-4 grid grid-cols-4 gap-3">
-              <div className="flex h-24 items-center justify-center border border-stone-300 bg-stone-50 text-xs text-stone-500">
-                Front
+            {thumbnails.length > 0 && (
+              <div className="mt-4 grid grid-cols-4 gap-3">
+                {thumbnails.map((image) => (
+                  <div
+                    key={image.label}
+                    className="border border-stone-300 bg-stone-50"
+                  >
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="h-24 w-full object-cover"
+                    />
+                  </div>
+                ))}
               </div>
-              <div className="flex h-24 items-center justify-center border border-stone-300 bg-stone-50 text-xs text-stone-500">
-                Back
-              </div>
-              <div className="flex h-24 items-center justify-center border border-stone-300 bg-stone-50 text-xs text-stone-500">
-                Detail
-              </div>
-              <div className="flex h-24 items-center justify-center border border-stone-300 bg-stone-50 text-xs text-stone-500">
-                Flaws
-              </div>
-            </div>
+            )}
           </div>
 
           <div>
@@ -77,7 +106,7 @@ function ProductDetailPage() {
             </p>
 
             <div className="mb-8 border border-stone-300">
-              <div className="border-b border-stone-300 px-4 py-3 text-sm font-bold uppercase tracking-wide">
+              <div className="border-b border-stone-300 px-4 py-3 text-sm font-bold uppercase tracking-wide text-stone-950">
                 Measurements
               </div>
 

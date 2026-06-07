@@ -7,4 +7,11 @@ export type Dress = {
   hip: number;
   hollowToHem: number;
   description: string;
+  images: {
+    main: string;
+    front?: string;
+    back?: string;
+    detail?: string;
+    flaw?: string;
+  };
 };

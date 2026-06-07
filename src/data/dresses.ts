@@ -1,6 +1,6 @@
 import type { Dress } from "../types/dress";
 
-export const featuredDresses: Dress[] = [
+export const dresses: Dress[] = [
   {
     id: 1,
     name: "Lace Garden Gown",
@@ -10,6 +10,11 @@ export const featuredDresses: Dress[] = [
     hip: 92,
     hollowToHem: 150,
     description: "Romantic lace wedding dress with a soft flowing shape.",
+    images: {
+      main: "/images/dresses/dress-1-front.jpg",
+      front: "/images/dresses/dress-1-front.jpg",
+      back: "/images/dresses/dress-1-back.jpg",
+    },
   },
   {
     id: 2,
@@ -20,6 +25,11 @@ export const featuredDresses: Dress[] = [
     hip: 94,
     hollowToHem: 152,
     description: "Elegant satin bridal dress with a refined designer look.",
+    images: {
+      main: "/images/dresses/dress-2-front.jpg",
+      front: "/images/dresses/dress-2-front.jpg",
+      back: "/images/dresses/dress-2-back.jpg",
+    },
   },
   {
     id: 3,
@@ -30,5 +40,12 @@ export const featuredDresses: Dress[] = [
     hip: 92,
     hollowToHem: 150,
     description: "Light tulle wedding dress with delicate movement.",
+    images: {
+      main: "/images/dresses/dress-3-front.jpg",
+      front: "/images/dresses/dress-3-front.jpg",
+      back: "/images/dresses/dress-3-back.jpg",
+    },
   },
 ];
+
+export const featuredDresses = dresses.slice(0, 3);
