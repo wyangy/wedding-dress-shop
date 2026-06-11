@@ -1,6 +1,6 @@
 # Automated Testing
 
-This project includes automated tests for the core catalogue data, product cards, product detail page, shop page, homepage structure, and request fitting form.
+This project includes automated tests for the core catalogue data, product cards, product detail page, shop page, homepage structure, image gallery interaction, and request fitting form.
 
 ## Testing Tools
 
@@ -67,6 +67,7 @@ This test checks that:
 - Size and measurements display with cm
 - The Notes to Tailor PDF message appears
 - The Request a Fitting link points to the correct fitting request page
+- The main product image updates when a thumbnail is clicked
 - A missing dress ID shows the Dress not found message
 
 ### Request Fitting Form Test
@@ -100,7 +101,7 @@ Home → Shop → Product Detail → Request a Fitting
 
 This creates a stable checkpoint before visual design polish and real dress images are added.
 
-The tests focus on user-visible behaviour, routing, form validation, and important data rules, rather than fragile visual styling details.
+The tests focus on user-visible behaviour, routing, form validation, image gallery interaction, and important data rules, rather than fragile visual styling details.
 
 ## Future Testing Improvements
 
@@ -109,4 +110,4 @@ Possible future improvements:
 - Add Playwright end-to-end tests for the full user journey
 - Add accessibility checks before final deployment
 - Add more form validation tests if the form becomes connected to a real backend
-- Add tests for image thumbnail behaviour after real dress images are added
+- Add more image tests after real dress images are added
