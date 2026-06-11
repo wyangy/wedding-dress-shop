@@ -11,9 +11,9 @@ afterEach(() => {
   cleanup();
 });
 
-function renderRequestFittingPage() {
+function renderRequestFittingPage(path = "/request-fitting/1") {
   return render(
-    <MemoryRouter initialEntries={["/request-fitting/1"]}>
+    <MemoryRouter initialEntries={[path]}>
       <Routes>
         <Route path="/request-fitting/:id" element={<RequestFittingPage />} />
       </Routes>
@@ -85,5 +85,18 @@ describe("RequestFittingPage", () => {
     expect(
       screen.queryByText(/please enter a valid phone number/i)
     ).not.toBeInTheDocument();
+  });
+
+  it("shows dress not found when the dress id does not exist", () => {
+    renderRequestFittingPage("/request-fitting/999");
+
+    expect(
+      screen.getByRole("heading", { name: /dress not found/i })
+    ).toBeInTheDocument();
+
+    expect(screen.getByRole("link", { name: /back to shop/i })).toHaveAttribute(
+      "href",
+      "/shop"
+    );
   });
 });
