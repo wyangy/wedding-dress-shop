@@ -2,6 +2,7 @@
 
 import "@testing-library/jest-dom/vitest";
 import { cleanup, render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { MemoryRouter, Route, Routes } from "react-router";
 import { afterEach, describe, expect, it } from "vitest";
 import ProductDetailPage from "./ProductDetailPage";
@@ -52,6 +53,25 @@ describe("ProductDetailPage", () => {
     const link = screen.getByRole("link", { name: /request a fitting/i });
 
     expect(link).toHaveAttribute("href", `/request-fitting/${dress.id}`);
+  });
+
+  it("changes the main image when a thumbnail is clicked", async () => {
+    const user = userEvent.setup();
+    const dress = dresses[0];
+
+    renderProductDetailPage(`/dresses/${dress.id}`);
+
+    const mainImage = screen.getByRole("img", { name: dress.name });
+
+    expect(mainImage).toHaveAttribute("src", dress.images.main);
+
+    const frontThumbnailButton = screen.getByRole("button", {
+      name: new RegExp(`${dress.name} front view`, "i"),
+    });
+
+    await user.click(frontThumbnailButton);
+
+    expect(mainImage).toHaveAttribute("src", dress.images.front);
   });
 
   it("shows dress not found when the dress id does not exist", () => {
