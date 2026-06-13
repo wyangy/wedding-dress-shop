@@ -1,38 +1,44 @@
+import { Link } from "react-router";
+
 function Hero() {
   return (
-    <section className="bg-white">
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-2 md:items-center">
-        <div>
-          <h1 className="mb-6 text-4xl font-semibold leading-tight text-stone-950 md:text-5xl">
-            Timeless Designer
+    <section className="relative min-h-[620px] overflow-hidden border-b border-stone-200 bg-[#fbf6ef] md:min-h-[700px]">
+      <div
+        className="absolute inset-0 bg-cover bg-center md:bg-[center_top]"
+        style={{
+          backgroundImage: "url('/images/hero/hero.jpg')",
+        }}
+      />
+
+      <div className="absolute inset-0 bg-gradient-to-r from-[#fbf6ef] via-[#fbf6ef]/90 to-[#fbf6ef]/20" />
+
+      <div className="relative mx-auto flex min-h-[620px] max-w-7xl items-center px-6 py-20 md:min-h-[700px] md:px-14 lg:px-20">
+        <div className="max-w-2xl">
+          <h1 className="font-serif text-5xl font-normal leading-[1.05] tracking-tight text-stone-950 md:text-6xl lg:text-7xl">
+            Find the dress
             <br />
-            Wedding Dresses
+            that feels like <span className="italic text-[#a8552f]">you.</span>
           </h1>
 
-          <p className="mb-8 max-w-md text-base leading-7 text-stone-700">
-            Beautiful one-of-a-kind wedding dresses from a refined
-            designer&apos;s collection.
+          <p className="mt-8 max-w-md text-base leading-8 text-stone-800">
+            Designer sample dresses, seriously loved. One-of-a-kind bridal
+            pieces ready for a new moment.
           </p>
 
-          <a
-            href="/shop"
-            className="inline-block bg-stone-950 px-7 py-3 text-sm font-bold uppercase tracking-wide text-white hover:bg-stone-700"
-          >
-            Shop Dresses
-          </a>
-        </div>
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <Link
+              to="/shop"
+              className="inline-block bg-[#a8552f] px-8 py-4 text-center text-sm font-medium text-white hover:bg-[#884326]"
+            >
+              Shop the Archive
+            </Link>
 
-        <div className="border border-stone-300 p-4">
-          <div className="flex h-72 items-center justify-center border border-stone-300 bg-stone-50">
-            <div className="text-center text-sm text-stone-500">
-              Hero dress image
-            </div>
-          </div>
-
-          <div className="mt-4 flex justify-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-stone-900" />
-            <span className="h-2 w-2 rounded-full bg-stone-300" />
-            <span className="h-2 w-2 rounded-full bg-stone-300" />
+            <Link
+              to="/#contact"
+              className="inline-block border border-[#c47a55] bg-white/50 px-8 py-4 text-center text-sm font-medium text-stone-950 hover:bg-white"
+            >
+              Request a Fitting
+            </Link>
           </div>
         </div>
       </div>
