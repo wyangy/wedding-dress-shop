@@ -7,38 +7,32 @@ type DressCardProps = {
 
 function DressCard({ dress }: DressCardProps) {
   return (
-    <article className="border border-stone-300 bg-white">
-      <div className="flex h-72 items-center justify-center border-b border-stone-300 bg-stone-50">
+    <article className="overflow-hidden rounded-xl border border-[#ead8c8] bg-white">
+      <div className="border-b border-[#ead8c8] bg-[#fbf6ef]">
         <img
           src={dress.images.main}
           alt={dress.name}
-          className="h-full w-full object-contain"
+          className="aspect-[4/5] w-full object-cover"
           loading="lazy"
           decoding="async"
         />
       </div>
 
-      <div className="p-4">
-        <h3 className="mb-3 text-sm font-bold text-stone-950">{dress.name}</h3>
+      <div className="p-5">
+        <h3 className="font-serif text-2xl italic leading-tight text-stone-950">
+          {dress.name}
+        </h3>
 
-        <div className="space-y-1 text-xs text-stone-700">
-          <p>Size: {dress.size}</p>
-          <p>Bust: {dress.bust} cm</p>
-          <p>Waist: {dress.waist} cm</p>
-          <p>Hip: {dress.hip} cm</p>
-          <p>Hollow to Hem: {dress.hollowToHem} cm</p>
+        <p className="mt-3 text-sm text-stone-700">Size: {dress.size}</p>
+
+        <div className="mt-4 flex justify-end">
+          <Link
+            to={`/dresses/${dress.id}`}
+            className="inline-block text-sm font-medium text-[#a8552f] hover:text-[#884326]"
+          >
+            View Details →
+          </Link>
         </div>
-
-        <p className="mt-4 text-xs leading-5 text-stone-600">
-          {dress.description}
-        </p>
-
-        <Link
-          to={`/dresses/${dress.id}`}
-          className="mt-4 inline-block border border-stone-900 px-5 py-2 text-xs font-bold uppercase tracking-wide text-stone-900 hover:bg-stone-950 hover:text-white"
-        >
-          View Details
-        </Link>
       </div>
     </article>
   );

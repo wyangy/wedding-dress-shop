@@ -28,7 +28,7 @@ afterEach(() => {
 });
 
 describe("DressCard", () => {
-  it("displays the dress information", () => {
+  it("displays the main dress card information", () => {
     render(
       <MemoryRouter>
         <DressCard dress={testDress} />
@@ -36,27 +36,10 @@ describe("DressCard", () => {
     );
 
     expect(screen.getByText("Lace Garden Gown")).toBeInTheDocument();
-    expect(screen.getByText(/Size:/i)).toBeInTheDocument();
-    expect(screen.getByText(/Bust:/i)).toBeInTheDocument();
-    expect(screen.getByText(/Waist:/i)).toBeInTheDocument();
-    expect(screen.getByText(/Hip:/i)).toBeInTheDocument();
-    expect(screen.getByText(/Hollow to Hem:/i)).toBeInTheDocument();
+    expect(screen.getByText("Size: 8")).toBeInTheDocument();
     expect(
-      screen.getByText(/Romantic lace wedding dress/i)
-    ).toBeInTheDocument();
-  });
-
-  it("shows measurements with cm", () => {
-    render(
-      <MemoryRouter>
-        <DressCard dress={testDress} />
-      </MemoryRouter>
-    );
-
-    expect(screen.getByText(/84 cm/i)).toBeInTheDocument();
-    expect(screen.getByText(/66 cm/i)).toBeInTheDocument();
-    expect(screen.getByText(/92 cm/i)).toBeInTheDocument();
-    expect(screen.getByText(/150 cm/i)).toBeInTheDocument();
+      screen.getByRole("img", { name: "Lace Garden Gown" })
+    ).toHaveAttribute("src", "/images/dresses/test-main.jpg");
   });
 
   it("links to the correct product detail page", () => {
