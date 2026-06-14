@@ -13,6 +13,8 @@ function DressCard({ dress }: DressCardProps) {
           src={dress.images.main}
           alt={dress.name}
           className="h-full w-full object-contain"
+          loading="lazy"
+          decoding="async"
         />
       </div>
 
