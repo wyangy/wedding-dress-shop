@@ -85,6 +85,8 @@ function ProductDetailPage() {
                 src={selectedImage ?? dress.images.main}
                 alt={dress.name}
                 className="max-h-[620px] w-full object-contain"
+                loading="eager"
+                decoding="async"
               />
             </div>
 
@@ -101,6 +103,8 @@ function ProductDetailPage() {
                       src={image.src}
                       alt={image.alt}
                       className="h-28 w-full object-contain"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </button>
                 ))}
