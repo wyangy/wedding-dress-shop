@@ -3,11 +3,14 @@ import { Link } from "react-router";
 function Hero() {
   return (
     <section className="relative min-h-[620px] overflow-hidden border-b border-stone-200 bg-[#fbf6ef] md:min-h-[700px]">
-      <div
-        className="absolute inset-0 bg-cover bg-center md:bg-[center_top]"
-        style={{
-          backgroundImage: "url('/images/hero/hero.jpg')",
-        }}
+      <img
+        src="/images/hero/hero.jpg"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover object-center md:object-top"
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
       />
 
       <div className="absolute inset-0 bg-gradient-to-r from-[#fbf6ef] via-[#fbf6ef]/90 to-[#fbf6ef]/20" />
