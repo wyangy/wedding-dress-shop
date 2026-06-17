@@ -29,7 +29,6 @@ test("user can request a fitting for a dress", async ({ page }) => {
   await page.getByLabel(/^name$/i).fill("Jane Bride");
   await page.getByLabel(/^email$/i).fill("jane@example.com");
   await page.getByLabel(/^phone$/i).fill("+64 21 123 4567");
-
   await page
     .getByLabel(/^message$/i)
     .fill("I would like to request a fitting.");
@@ -39,4 +38,25 @@ test("user can request a fitting for a dress", async ({ page }) => {
   await expect(
     page.getByText(/your fitting request has been received/i)
   ).toBeVisible();
+});
+
+test("invalid phone number is rejected", async ({ page }) => {
+  await page.goto("/request-fitting/1");
+
+  await page.getByLabel(/^name$/i).fill("Jane Bride");
+  await page.getByLabel(/^email$/i).fill("jane@example.com");
+  await page.getByLabel(/^phone$/i).fill("hello phone");
+  await page
+    .getByLabel(/^message$/i)
+    .fill("I would like to request a fitting.");
+
+  await page.getByRole("button", { name: /submit request/i }).click();
+
+  await expect(
+    page.getByText(/please enter a valid phone number/i)
+  ).toBeVisible();
+
+  await expect(
+    page.getByText(/your fitting request has been received/i)
+  ).not.toBeVisible();
 });
