@@ -1,20 +1,21 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useParams } from "react-router";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import { dresses } from "../data/dresses";
 
+type SelectedImage = {
+  dressId: number;
+  src: string;
+};
+
 function ProductDetailPage() {
   const { id } = useParams();
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<SelectedImage | null>(
+    null
+  );
 
   const dress = dresses.find((dress) => dress.id === Number(id));
-
-  useEffect(() => {
-    if (dress) {
-      setSelectedImage(dress.images.main);
-    }
-  }, [dress]);
 
   if (!dress) {
     return (
@@ -35,6 +36,9 @@ function ProductDetailPage() {
       </>
     );
   }
+
+  const displayedImage =
+    selectedImage?.dressId === dress.id ? selectedImage.src : dress.images.main;
 
   const thumbnails = [
     {
@@ -82,7 +86,7 @@ function ProductDetailPage() {
           <div>
             <div className="flex min-h-[620px] items-center justify-center border border-stone-300 bg-stone-50">
               <img
-                src={selectedImage ?? dress.images.main}
+                src={displayedImage}
                 alt={dress.name}
                 className="max-h-[620px] w-full object-contain"
                 loading="eager"
@@ -96,7 +100,12 @@ function ProductDetailPage() {
                   <button
                     key={image.label}
                     type="button"
-                    onClick={() => setSelectedImage(image.src)}
+                    onClick={() =>
+                      setSelectedImage({
+                        dressId: dress.id,
+                        src: image.src,
+                      })
+                    }
                     className="border border-stone-300 bg-stone-50 p-1 hover:border-stone-900"
                   >
                     <img
