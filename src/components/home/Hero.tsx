@@ -36,12 +36,12 @@ function Hero() {
               Shop the Archive
             </Link>
 
-            <Link
-              to="/#contact"
+            <a
+              href="#contact"
               className="inline-block border border-[#c47a55] bg-white/50 px-8 py-4 text-center text-sm font-medium text-stone-950 hover:bg-white"
             >
               Request a Fitting
-            </Link>
+            </a>
           </div>
         </div>
       </div>
