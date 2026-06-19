@@ -8,11 +8,11 @@ type DressCardProps = {
 function DressCard({ dress }: DressCardProps) {
   return (
     <article className="overflow-hidden rounded-xl border border-[#ead8c8] bg-white">
-      <div className="border-b border-[#ead8c8] bg-[#fbf6ef]">
+      <div className="aspect-[4/5] border-b border-[#ead8c8] bg-[#fbf6ef]">
         <img
           src={dress.images.main}
           alt={dress.name}
-          className="aspect-[4/5] w-full object-cover"
+          className="h-full w-full object-contain object-center"
           loading="lazy"
           decoding="async"
         />
