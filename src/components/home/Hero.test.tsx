@@ -53,11 +53,11 @@ describe("Hero", () => {
     expect(shopLink).toHaveAttribute("href", "/shop");
   });
 
-  it("renders the Request a Fitting link with the correct destination", () => {
+  it("renders the Request a Fitting link as a same-page contact anchor", () => {
     const fittingLink = screen.getByRole("link", {
       name: /request a fitting/i,
     });
 
-    expect(fittingLink).toHaveAttribute("href", "/#contact");
+    expect(fittingLink).toHaveAttribute("href", "#contact");
   });
 });
