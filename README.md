@@ -1,73 +1,91 @@
-# React + TypeScript + Vite
+# Wedding Dress Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + TypeScript + Vite wedding dress shop project.
 
-Currently, two official plugins are available:
+This project includes:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Homepage
+- Shop page
+- Product detail pages
+- Contact section
+- Tailwind CSS styling
+- React Router navigation
+- Unit tests with Vitest and Testing Library
+- End-to-end tests with Playwright
+- GitHub Actions CI
 
-## React Compiler
+## Main Commands
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Start the development server:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Run the normal local check before committing:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run check
 ```
+
+Run the production build only:
+
+```bash
+npm run build
+```
+
+Run unit tests:
+
+```bash
+npm run test:run
+```
+
+Run Playwright end-to-end tests:
+
+```bash
+npm run test:e2e
+```
+
+Run all tests:
+
+```bash
+npm run test:all
+```
+
+## Local Development Workflow
+
+Normal workflow:
+
+```txt
+1. Make code changes
+2. Run npm run check
+3. Commit in GitHub Desktop
+4. Push to GitHub
+5. Confirm GitHub Actions CI is green
+```
+
+## GitHub Actions CI
+
+This project uses GitHub Actions.
+
+Every push and pull request runs:
+
+```bash
+npm ci
+npm run check
+```
+
+The CI file is located here:
+
+```txt
+.github/workflows/ci.yml
+```
+
+## Project Notes
+
+- Dress data is stored in `src/data/dresses.ts`
+- Dress images are stored in `public/images/dresses`
+- Homepage components are stored in `src/components/home`
+- Page components are stored in `src/pages`
+- Routing is handled with `react-router`
+- Styling is handled with Tailwind CSS
