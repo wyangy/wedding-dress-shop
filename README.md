@@ -1,5 +1,7 @@
 # Wedding Dress Shop
 
+[![CI](https://github.com/wyangy/wedding-dress-shop/actions/workflows/ci.yml/badge.svg)](https://github.com/wyangy/wedding-dress-shop/actions/workflows/ci.yml)
+
 A React + TypeScript + Vite wedding dress shop project.
 
 This project includes:
